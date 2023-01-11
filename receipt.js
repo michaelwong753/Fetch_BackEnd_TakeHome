@@ -27,10 +27,10 @@ class Receipt{
     }
 
     extractPurchaseTime(){
-        let hour = parseInt(moment(this.purchaseTime, "HH:mm").format("HH"))
-        if (hour >= 14 && hour <= 16){
+        let time = moment(this.purchaseTime, "HH:mm")
+        if (time.isBetween(moment("14:00","HH:mm"), moment("16:00","HH:mm"))){
             return 10
-        }
+        } 
         return 0
     }
 
