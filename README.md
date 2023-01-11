@@ -31,4 +31,6 @@ docker run --publish 3000:3000 your username/node-web-app
 ```
 **"location": "California"** will be ignored as it is not part of the schema, and no error will be returned. This is to make sure that any accidental changes from the Front-End won't cause an error.
 
-- Ordering of the JSON key-value pair does not matter (e.g "items" can come first before "retailer)
+- Ordering of the JSON key-value pair does not matter (e.g "items" can come first before "retailer")
+- PurchaseDate follows YYYY-MM-DD pattern 
+- PurchaseTime follows HH:mm pattern
