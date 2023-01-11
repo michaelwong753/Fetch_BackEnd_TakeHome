@@ -4,7 +4,7 @@ Candidate: Michael Wong
 # How to Install
 Build Docker Image
 ```
-docker build . -t <your username>/node-web-app
+docker build . -t your_username/node-web-app
 ```
 
 Run Docker
