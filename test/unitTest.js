@@ -100,6 +100,23 @@ describe('API Request Test', () => {
     });
 
     describe('/GET receipt', () => {  
+        it('it SHOULD NOT accept an invalid id', (done) => {
+            var data = JSON.parse(fs.readFileSync(path.resolve(__dirname, './testData/point28.json')));
+            chai.request(server)
+            .post('/receipts/process')
+            .send(data)
+            .end((err, res) => {
+                chai.request(server)
+                .get('/receipt/123456/points')
+                .send(data)
+                .end((err, res) => {
+                    res.should.have.status(404);
+                    res.text.should.eql("No receipt found for that id");
+                });
+                done();
+            });
+        });
+
         it('it SHOULD extract 28 points from the receipt', (done) => {
             var data = JSON.parse(fs.readFileSync(path.resolve(__dirname, './testData/point28.json')));
             chai.request(server)
